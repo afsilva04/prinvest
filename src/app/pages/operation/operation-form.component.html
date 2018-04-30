@@ -1,0 +1,134 @@
+<h3>{{title}}</h3>
+<hr/>
+
+<div class="row">
+	<div class="col-12 mb-4">
+		<div widget class="card border-0 box-shadow">
+			<div class="card-block widget-body">
+				
+				<form #formCreateClient="ngForm" (ngSubmit)="saveOperation()" class="form">
+
+					<div class="row">
+						<div class="form-group col-md-12 col-lg-12">
+							<label>Coin</label>
+							<ng-select [items]="coins"
+								bindLabel="name"
+								bindValue="id"
+								#coin="ngModel" name="coin" [(ngModel)]="operation.coin"
+								notFoundText="No coins found">
+							</ng-select> 
+						</div>	
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12 col-lg-4">
+							<label>Entry</label>
+							<input type="text" class="form-control"
+							#entry="ngModel" name="entry" [(ngModel)]="operation.entry">
+						</div>
+
+						<div class="form-group col-md-12 col-lg-4">
+							<label>Entry in BTC</label>
+							<input type="text" class="form-control"
+							#entryBTC="ngModel" name="entryBTC" [(ngModel)]="operation.entryBTC">
+						</div>
+
+						<div class="form-group col-md-12 col-lg-4">
+							<label>Entry in USD</label>
+							<input type="text" class="form-control"
+							#entryUSD="ngModel" name="entryUSD" [(ngModel)]="operation.entryUSD">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12 col-lg-4">
+							<label>Exit</label>
+							<input type="text" class="form-control" 
+							#exit="ngModel" name="exit" [(ngModel)]="operation.exit">
+						</div>
+						
+						<div class="form-group col-md-12 col-lg-4">
+							<label>Exit in BTC</label>
+							<input type="text" class="form-control" 
+							#exitBTC="ngModel" name="exitBTC" [(ngModel)]="operation.exitBTC">
+						</div>
+
+						<div class="form-group col-md-12 col-lg-4">
+							<label>Exit in USD</label>
+							<input type="text" class="form-control" 
+							#exitUSD="ngModel" name="exitUSD" [(ngModel)]="operation.exitUSD">
+						</div>
+					</div>
+
+					<div class="row">	
+						<div class="form-group col-md-12 col-lg-6">
+							<label>Profit</label>
+							<input class="form-control" type="text" disabled
+							#profit="ngModel" name="profit" [(ngModel)]="operation.profit">
+						</div>
+
+						<div class="form-group col-md-12 col-lg-6">
+							<label>USD Gain/Loss</label>
+							<input type="text" class="form-control" disabled
+							#usdGain="ngModel" name="usdGain" [(ngModel)]="operation.usdGain">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12 col-lg-6">
+							<label>BTC Cost</label>
+							<input type="text" class="form-control" disabled
+							#btcCost="ngModel" name="btcCost" [(ngModel)]="operation.btcCost">
+						</div>		
+
+						<div class="form-group col-md-12 col-lg-6">
+							<label>BTC Gain/Loss</label>
+							<input type="text" class="form-control" disabled
+							#btcGain="ngModel" name="btcGain" [(ngModel)]="operation.btcGain">
+						</div>						
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12 col-lg-6">
+							<label>User</label>
+							<ng-select [items]="users"
+								bindLabel="name"
+								bindValue="id"
+								#user="ngModel" name="user" [(ngModel)]="operation.userId"
+								notFoundText="No users found">
+							</ng-select> 
+						</div>	
+
+						<div class="form-group col-md-12 col-lg-6">
+							<label>Date</label>
+							<div class="input-group">
+								<input class="form-control" placeholder="aaaa-mm-dd" name="date" 
+								[displayMonths]="'1'" [navigation]="'select'" ngbDatepicker #date="ngbDatepicker" 
+								[(ngModel)]="dateStruct" (click)="date.toggle()">
+								<div class="input-group-addon" (click)="date.toggle()">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>		
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12 col-lg-12">
+							<label>Comment</label>
+							<input type="text" class="form-control"
+							#comment="ngModel" name="comment" [(ngModel)]="operation.comment">
+						</div>							
+					</div>						
+
+					<br>
+					<div class="row" align="right">
+						<div class="form-group col-md-12 col-lg-12">
+							<input type="submit" value="{{title}}" class="btn btn-primary">
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
