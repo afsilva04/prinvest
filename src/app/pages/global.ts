@@ -1,3 +1,3 @@
 export var Global = {
-	url: 'http://localhost:8080/'
+	url: 'http://prinvestservices.herokuapp.com/' // 'http://localhost:8080/'
 };
